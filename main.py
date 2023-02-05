@@ -42,7 +42,7 @@ class VivaldiProfileScanner:
     def scan(self, query: Optional[str]) -> Iterable[Profile]:
         for profile in self._profile_info_cache:
             if (self.config_dir / profile.dir).exists():
-                if query is None or query in profile.name:
+                if query is None or query in profile.name.lower():
                     yield profile
 
 
